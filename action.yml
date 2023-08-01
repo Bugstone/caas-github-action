@@ -1,0 +1,5 @@
+name: "Github Action for CAAS"
+description: "CAAS CAAS CAAS"
+runs:
+  using: "node16"
+  main: "index.js"
