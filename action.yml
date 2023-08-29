@@ -20,4 +20,3 @@ runs:
       shell: bash
     - run: export CAAS_SECRET_KEY=${{inputs.caas-secret-key}} & build_caas.sh ${{inputs.maven-goal}}
       shell: bash
-    
