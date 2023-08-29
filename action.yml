@@ -1,5 +1,23 @@
 name: "Github Action for CAAS"
-description: "CAAS CAAS CAAS"
+description: "build and test after provide coverage result"
+inputs:
+  caas-secret-key:    # caas api key
+    description: 'CAAS Secret Key'
+    required: true
+    default: ''
+  maven-goal:         # maven goal
+    description: 'User-defined maven goal'
+    reqired: false
+    default: 'compile test package'
+outputs:
+  caas-coverage-badge:    # caas coverage badge
+    description: 'CAAS Coverage Badge'
+    value: ${{steps.generate-caas-badge-url.outputs.caas-badge}}
 runs:
-  using: "node16"
-  main: "index.js"
+  using: 'composite'
+  steps:
+    - run: prepare_caas.sh
+      shell: bash
+    - run: export CAAS_SECRET_KEY=${{inputs.caas-secret-key}} & build_caas.sh ${{inputs.maven-goal}}
+      shell: bash
+    
