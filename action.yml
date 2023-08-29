@@ -16,6 +16,8 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
     - run: prepare_caas.sh
       shell: bash
     - run: export CAAS_SECRET_KEY=${{inputs.caas-secret-key}} & build_caas.sh ${{inputs.maven-goal}}
