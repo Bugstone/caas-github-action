@@ -1,3 +1,4 @@
+rm -rf /home/runner/.m2/repository/com/qualityscroll/caas/jacov-maven-plugin
 echo "Downloading jacov-maven-plugin.jar"
 wget -O jacov-maven-plugin.jar "https://drive.google.com/file/d/10ungQObnmFZYRHiolSPUD1L9FUU1GdeY/view?usp=sharing"
 echo "Complete download. (jacov-maven-plugin)"
