@@ -1,10 +1,6 @@
 name: "Github Action for CAAS"
 description: "build and test after provide coverage result"
 inputs:
-  caas-secret-key:    # caas api key
-    description: 'CAAS Secret Key'
-    required: true
-    default: ''
   maven-goal:         # maven goal
     description: 'User-defined maven goal'
     reqired: false
@@ -20,7 +16,7 @@ runs:
       shell: bash
     - run: prepare_caas.sh
       shell: bash
-    - run: echo "CAAS_API_KEY=${{inputs.caas-secret-key}}" >> $GITHUB_ENV
+    - run: echo "CAAS_API_KEY=${{secrets.CAAS_API_KEY}}" >> $GITHUB_ENV
       shell: bash
     - run: echo `export | grep CAAS`
       shell: bash
