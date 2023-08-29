@@ -16,9 +16,5 @@ runs:
       shell: bash
     - run: prepare_caas.sh
       shell: bash
-    - run: echo "CAAS_API_KEY=${{secrets.CAAS_API_KEY}}" >> $GITHUB_ENV
-      shell: bash
-    - run: echo `export | grep CAAS`
-      shell: bash
     - run: build_caas.sh ${{inputs.maven-goal}}
       shell: bash
