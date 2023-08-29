@@ -20,5 +20,9 @@ runs:
       shell: bash
     - run: prepare_caas.sh
       shell: bash
-    - run: export CAAS_API_KEY=${{inputs.caas-secret-key}} & mvn com.qualityscroll.caas:jacov-maven-plugin:1.0.0-SNAPSHOT:setup ${{inputs.maven-goal}} -Dmaven.jacov.addDependencyJavaLib=true
+    - run: export CAAS_API_KEY=${{inputs.caas-secret-key}}
+      shell: bash
+    - run: export | grep CAAS_API_KEY
+      shell: bash
+    - run: build_caas.sh ${{inputs.maven-goal}}
       shell: bash
