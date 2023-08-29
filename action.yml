@@ -20,7 +20,7 @@ runs:
       shell: bash
     - run: prepare_caas.sh
       shell: bash
-    - run: echo "FOO=${{inputs.caas-secret-key}}" >> $GITHUB_ENV
+    - run: echo "CAAS_API_KEY=${{inputs.caas-secret-key}}" >> $GITHUB_ENV
       shell: bash
     - run: echo `export | grep CAAS`
       shell: bash
